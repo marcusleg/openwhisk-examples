@@ -1,5 +1,5 @@
 # OpenWhisk Examples
-Basic examples as well as exemplary business use cases.
+This repository that holds the examples developed for and referenced in my bachelor's thesis.
 
 ## Note on publishing
-This is a private repository and will not be made public before August 27th, 2018.
+At the time of writing this is a private repository. It will not be made public before August 27th, 2018.
