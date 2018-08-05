@@ -1,0 +1,32 @@
+packages:
+  timezonediff:
+    version: 1.0
+    actions:
+      main:
+        function: main.js
+        runtime: nodejs
+        inputs:
+          timezone1:
+            type: string
+            default: CEST
+          timezone2: 
+            type: string
+            default: JST
+        outputs:
+          difference: float
+      offset:
+        function: offset.js
+        runtime: nodejs
+        inputs:
+          timezone: string
+          default: CEST
+        outputs:
+          offset: float
+      difference:
+        function: difference.zip
+        native: true
+        inputs:
+          a: float
+          b: float
+        outputs:
+          difference: float

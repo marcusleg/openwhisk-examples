@@ -1,13 +1,9 @@
-wsk package update timezonediff
-
-# deploy difference function
+# compile difference action
 GOOS=linux GOARCH=amd64 go build -o exec
-zip exec.zip exec
-wsk action update timezonediff/difference --native exec.zip
-rm exec exec.zip
+zip difference.zip exec
 
-# deploy offset function
-wsk action update timezonediff/offset offset.js
+# deploy package
+wskdeploy 
 
-# deploy main function
-wsk action update timezonediff/main main.js
+# remove compilation artefacts
+rm exec difference.zip
