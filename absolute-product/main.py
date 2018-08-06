@@ -8,13 +8,12 @@ def main(params):
             'state': { 'step': step + 1 }
         }
 
-    if step == 1:
+    if step == 1 and params['product'] < 0:
         return {
             'action': 'absoluteProduct/absolute',
             'params': params,
             'state': { 'step': step + 1 }
         }
     
-    if step == 2:
-        del params['step']
-        return params
+    del params['step']
+    return params
