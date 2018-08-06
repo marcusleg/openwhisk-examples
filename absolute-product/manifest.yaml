@@ -1,0 +1,33 @@
+packages:
+  absoluteProduct:
+    version: 1.0
+    license: Apache-2.0
+    actions:
+      main:
+        function: main.py
+        runtime: python:3
+        conductor: true
+        inputs:
+          a: float
+          b: float
+        outputs:
+          a: float
+          b: float
+          product: float
+          absolute_product: float
+      multiply:
+        function: multiply.py
+        runtime: python:3
+        inputs:
+          a: float
+          b: float
+        outputs:
+          product: float
+      absolute:
+        function: absolute.php
+        runtime: php
+        inputs:
+          product: float
+        outputs:
+          product: float
+          absolute_product: float
