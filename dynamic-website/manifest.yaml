@@ -1,0 +1,9 @@
+packages:
+  dynamicWebsite:
+    version: 1.0
+    license: Apache-2.0
+    actions:
+      index:
+        function: exec.zip
+        runtime: php:7.2
+        web: true
