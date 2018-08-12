@@ -1,5 +1,5 @@
 #!/bin/bash
-zip exec.zip index.php header.html footer.html
+zip exec.zip index.php database.sqlite header.html footer.html
 wskdeploy
 rm exec.zip
 
