@@ -14,6 +14,17 @@ function get_page($db, $page)
     return $query->fetch();
 }
 
+function build_navigation($db) : string
+{
+    $result = $db->query('SELECT title FROM pages;');
+    $html = '| ';
+    foreach ($result as $row)
+    {
+        $html .= '<a href="?page=' . $row['title'] . '">' . $row['title'] . '</a> | ';
+    }
+    return $html . '<hr>';
+}
+
 
 function main(array $args) : array
 {
@@ -23,6 +34,10 @@ function main(array $args) : array
 
     $body = file_get_contents('header.html');
 
+    // navigation bar
+    $body .= build_navigation($db);
+
+    // page specific content
     $page = $args['page'] ?? 'Homepage';
     $result = get_page($db, $page);
     $body .= '<h2>' . $result['title'] . '</h2>' . $result['content'];
