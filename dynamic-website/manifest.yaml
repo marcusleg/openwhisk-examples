@@ -7,3 +7,6 @@ packages:
         function: exec.zip
         runtime: php:7.2
         web: true
+        limits:
+          timeout: 5000
+          memorySize: 128
