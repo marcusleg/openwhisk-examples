@@ -46,6 +46,9 @@ function main(array $args) : array
 
     $db = null;
 
-    return ['body' => $body];
+    return [
+        'headers' => ['Content-Type' => 'text/html'],
+        'body' => $body
+    ];
 }
 ?>
