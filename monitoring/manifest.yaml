@@ -3,15 +3,21 @@ packages:
     version: 1.0
     license: Apache-2.0
     actions:
-      sendmail:
-        function: sendmail.py
+      checkDNS:
+        function: check_dns.py
         runtime: python:3
         limits:
-          timeout: 30000
+          timeout: 10000
           memorySize: 128
       checkHTTP:
         function: check_http.py
         runtime: python:3
         limits:
           timeout: 10000
+          memorySize: 128
+      sendmail:
+        function: sendmail.py
+        runtime: python:3
+        limits:
+          timeout: 30000
           memorySize: 128
