@@ -5,20 +5,27 @@ import re
 def main(args):
     try:
         validate_args(args)
-    except AssertionError as ex:
-        return {
-            'Error': 'Argument validation failed'
+    except AssertionError:
+        result = {
+            **args,
+            'sendmail': 'failed',
         }
 
     try:
         sendmail(args)
     except Exception:
-        return {
-            'Error': 'Sending Mail failed!',
-            'Exception': ex.message
+        result = {
+            **args,
+            'sendmail': 'failed',
+        }
+    else:
+        result = {
+            **args,
+            'sendmail': 'success',
         }
 
-    return {'Success': "Mail sent."}
+    del result['smtp_password']
+    return result
 
 def sendmail(args):
     message = EmailMessage()
