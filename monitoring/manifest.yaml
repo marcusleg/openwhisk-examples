@@ -15,6 +15,13 @@ packages:
         limits:
           timeout: 10000
           memorySize: 128
+      main:
+        function: main.py
+        runtime: python:3
+        conductor: true
+        limits:
+          timeout: 5000
+          memorySize: 128
       sendmail:
         function: sendmail.py
         runtime: python:3
