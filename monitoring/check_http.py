@@ -64,4 +64,4 @@ def main(args):
 
     # run checks
     check = HTTPCheck(args)
-    return check.result()
+    return {**args, **check.result()}

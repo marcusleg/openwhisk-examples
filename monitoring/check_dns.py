@@ -26,7 +26,7 @@ def dns_check_type_a(host, expected_ip):
 def dns_check_type_aaaa(host, expected_ip):
     resolved_ip = socket.getaddrinfo(host, None, family=socket.AF_INET6)[0][4][0]
     if resolved_ip == expected_ip:
-        return {'passed': True}
+        return {'passed': True, 'errors': []}
     return {
         'passed': False,
         'errors': [host + ' resolved to ' + resolved_ip +
@@ -45,10 +45,11 @@ def main(args):
 
     # run check
     try:
-        return dns_check(
+        result = dns_check(
             args['host'],
             args['type'],
             args['ip']
         )
+        return {**args, **result}
     except ValueError:
         return {'Error': 'Unkown record type: ' + args['type']}
