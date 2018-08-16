@@ -28,3 +28,13 @@ packages:
         limits:
           timeout: 30000
           memorySize: 128
+    triggers:
+      triggerGoogleHTTPS:
+        feed: /whisk.system/alarms/interval
+        inputs:
+          minutes: 1
+          trigger_payload: "{\"check\":\"http\",\"url\":\"https://www.google.com\",\"expected_status_code\":\"200\",\"to\":\"marcus.legendre@gmail.com\"}"
+    rules:
+      ruleGoogleHTTPS:
+        trigger: triggerGoogleHTTPS
+        action: main
