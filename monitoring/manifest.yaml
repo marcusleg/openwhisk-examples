@@ -1,0 +1,11 @@
+packages:
+  monitoring:
+    version: 1.0
+    license: Apache-2.0
+    actions:
+      sendmail:
+        function: sendmail.py
+        runtime: python:3
+        limits:
+          timeout: 30000
+          memorySize: 128
