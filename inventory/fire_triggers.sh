@@ -1,6 +1,6 @@
 #!/bin/bash
-PRODUCT_ID=$RANDOM
-RESTOCK=$(($RANDOM % 90 + 10))
+PRODUCT_ID=$(($RANDOM % 50))
+RESTOCK=$(($RANDOM % 10 + 1))
 
 echo "Firing itemRestocked trigger with product_id=$PRODUCT_ID and stock_change=$RESTOCK"
 wsk trigger fire itemRestocked -p product_id $PRODUCT_ID -p stock_change $RESTOCK
